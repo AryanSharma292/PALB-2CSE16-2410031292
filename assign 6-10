@@ -1,0 +1,94 @@
+PROBLEM 6
+#ROTATE ARRAY BY ONE POSITION (CLOCKWISE)
+
+arr = [1, 2, 3, 4, 5]
+
+last = arr[-1]
+
+for i in range(len(arr) - 1, 0, -1):
+    arr[i] = arr[i - 1]
+
+arr[0] = last
+
+print("Rotated array:", arr)
+
+
+
+PROBLEM 7
+#MAXIMUM SUM SUBARRAY
+
+arr = [2, 3, -8, 7, -1, 2, 3]
+
+max_sum = arr[0]
+current_sum = arr[0]
+
+for i in range(1, len(arr)):
+    current_sum = max(arr[i], current_sum + arr[i])
+    max_sum = max(max_sum, current_sum)
+
+print("Maximum subarray sum:", max_sum)
+
+PROBLEM 8 
+#SEARCH INSERT POSITION
+
+nums = [1, 3, 5, 6]
+target = 5
+
+low = 0
+high = len(nums) - 1
+
+while low <= high:
+    mid = (low + high) // 2
+    if nums[mid] == target:
+        print("Index:", mid)
+        break
+    elif nums[mid] < target:
+        low = mid + 1
+    else:
+        high = mid - 1
+else:
+    print("Insert position:", low)
+
+PROBLEM 9
+#TWO SUM PROBLEM
+
+nums = [2, 7, 11, 15]
+target = 9
+
+for i in range(len(nums)):
+    for j in range(i + 1, len(nums)):
+        if nums[i] + nums[j] == target:
+            print("Indices:", [i, j])
+            break
+
+
+PROBLEM 10
+#MINIMUM NUMBER OF JUMPS TO REACH END
+
+arr = [1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]
+
+n = len(arr)
+
+if n == 1:
+    print(0)
+elif arr[0] == 0:
+    print(-1)
+else:
+    jumps = 1
+    maxReach = arr[0]
+    step = arr[0]
+
+    for i in range(1, n):
+        if i == n - 1:
+            print(jumps)
+            break
+
+        maxReach = max(maxReach, i + arr[i])
+        step -= 1
+
+        if step == 0:
+            jumps += 1
+            if i >= maxReach:
+                print(-1)
+                break
+            step = maxReach - i
