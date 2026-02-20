@@ -1,0 +1,67 @@
+PROBLEM 1
+#Reverse an array (in place)
+
+arr = [1, 4, 3, 2, 6, 5]
+
+n = len(arr)
+for i in range(n // 2):
+    arr[i], arr[n - i - 1] = arr[n - i - 1], arr[i]
+
+print("Reversed array:", arr)
+
+
+PROBLEM 2
+#FIND MINIMUM AND MAXIMUM IN AN ARRAY
+
+arr = [1, 4, 3, 5, 8, 6]
+
+minimum = arr[0]
+maximum = arr[0]
+
+for i in arr:
+    if i < minimum:
+        minimum = i
+    if i > maximum:
+        maximum = i
+
+print("Minimum:", minimum)
+print("Maximum:", maximum)
+
+
+
+PROBLEM 3
+#Kth SMALLEST ELEMENT IN AN ARRAY
+
+arr = [10, 5, 4, 3, 48, 6, 2, 33, 53, 10]
+k = 4
+
+arr.sort()
+
+print(f"{k}th smallest element is:", arr[k - 1])
+
+
+
+PROBLEM 4
+#UNION OF TWO ARRAYS
+
+a = [1, 2, 3, 2, 1]
+b = [3, 2, 3, 3, 2]
+
+union_set = set(a) | set(b)
+union_list = sorted(list(union_set))
+
+print("Union of arrays:", union_list)
+
+
+PROBLEM 5
+#FINDING THE LARGEST ELEMENT IN AN ARRAY
+
+arr = [1, 8, 7, 56, 90]
+
+largest = arr[0]
+
+for i in arr:
+    if i > largest:
+        largest = i
+
+print("Largest element:", largest)
